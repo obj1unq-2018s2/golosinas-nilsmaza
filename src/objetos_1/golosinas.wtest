@@ -194,6 +194,4 @@ describe "test de golosinas" {
 		assert.equals("chocolate", golosinaBaniada.gusto())
 		assert.that(not golosinaBaniada.libreGluten())	
 	}
-
-
 }
