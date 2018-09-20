@@ -35,8 +35,16 @@ describe "tests de mariano" {
 		
 		mariano.comprar(alfajor)
 		mariano.comprar(bombon)
+		mariano.comprar(chocolatin)
+		assert.equals(#{chupetin},mariano.golosinasFaltantes(#{alfajor, bombon, chocolatin, chupetin})
+		)
+	}
+	
+	test "gustos Deseados"{
+		mariano.comprar(alfajor)
+		mariano.comprar(bombon)
 		mariano.comprar(chupetin)
-		assert.equals(chocolatin,mariano.golosinasFaltantes(#{alfajor, bombon, chocolatin, chupetin})
+		assert.equals(#{"melon","vainilla"},mariano.gustosFaltantes( #{"melon", "chocolate", "frutilla" , "vainilla"} )
 		)
 	}
 	

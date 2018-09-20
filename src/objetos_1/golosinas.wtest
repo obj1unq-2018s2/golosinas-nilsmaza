@@ -155,16 +155,16 @@ describe "test de golosinas" {
 	
 	test "precio tuttifrutti" {
 		assert.equals(10, tuttifrutti.precio())
-		tuttifrutti.esLibreDeGluten()
+		tuttifrutti.esLibreDeGluten(true)
 		assert.equals(7, tuttifrutti.precio())
 	}
 	
-//	test "mordiscos tuttifrutti" {
-//		tuttifrutti.mordisco()
-//		assert.equals("chocolate", tuttifrutti.gusto())
-//		tuttifrutti.mordisco()
-//		assert.equals("naranja", tuttifrutti.gusto())
-//	}
+	test "mordiscos tuttifrutti" {
+		tuttifrutti.mordisco()
+		assert.equals("chocolate", tuttifrutti.gusto())
+		tuttifrutti.mordisco()
+		assert.equals("naranja", tuttifrutti.gusto())
+	}
 
 // golosina bañada
 
@@ -193,5 +193,23 @@ describe "test de golosinas" {
 		assert.equals(96, golosinaBaniada.peso())
 		assert.equals("chocolate", golosinaBaniada.gusto())
 		assert.that(not golosinaBaniada.libreGluten())	
+	}
+
+	test "golosinaBaniada con tutti-frutti" {
+		
+		golosinaBaniada.baniaA(tuttifrutti)
+		assert.equals(9 , golosinaBaniada.peso())
+		assert.equals(12, golosinaBaniada.precio())
+		assert.equals("frutilla", golosinaBaniada.gusto())
+		golosinaBaniada.mordisco()
+		assert.equals("chocolate", golosinaBaniada.gusto())
+		assert.equals(7, golosinaBaniada.peso())
+		golosinaBaniada.mordisco()
+		assert.equals(5, golosinaBaniada.peso())
+		assert.equals("naranja", golosinaBaniada.gusto())
+		assert.that(not golosinaBaniada.libreGluten())
+		tuttifrutti.esLibreDeGluten(true)
+		assert.equals(9, golosinaBaniada.precio())
+		assert.that(golosinaBaniada.libreGluten())
 	}
 }

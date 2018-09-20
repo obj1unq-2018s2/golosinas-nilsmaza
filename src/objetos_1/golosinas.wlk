@@ -85,22 +85,26 @@ object golosinaBaniada {
 }
 
 object tuttifrutti {
-	var sabores = ["frutrilla","chocolate","naranja"]
+	var sabores = ["frutilla","chocolate","naranja","frutilla"]
 	var peso = 5
 	var saborActual = sabores.first() 
 	var gluten =false
-//	var saborEliminado 
+	var mordidas = 0
 	
 	method precio() = if( self.libreGluten() )  7 else 10
 	method peso() { return peso }
-//	method mordisco() {
-//		if( saborActual == saborActual ) {
-//			saborEliminado = sabores.renove( sabores.first() )
-//			saborActual = sabores.first()
-//		} }
+	method mordisco() {
+		if( mordidas <= 2 ) {
+			saborActual = sabores.get( mordidas )
+			mordidas += 1
+			}
+			else
+			mordidas -= 2
+			saborActual = sabores.get( mordidas )
+		} 
 		
 	method gusto() { return saborActual }
 	method libreGluten() { return gluten }
-	method esLibreDeGluten(){  gluten = true }
+	method esLibreDeGluten(bool){  gluten = bool }
 }
 
